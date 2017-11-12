@@ -1,5 +1,8 @@
 package com.xxxifan.kotlinplayground.nulls;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 /**
  * Created by BobPeng on 2017/11/12.
  */
@@ -16,12 +19,12 @@ public class JavaNull {
 
 
   public static class Student {
-    public int id;
-    public String name;
-    public String email;
-    public boolean isBoy;
+    public final int id;
+    public final String name;
+    @Nullable public String email;
+    public final boolean isBoy;
 
-    public Student(int id, String name, String email, boolean isBoy) {
+    public Student(int id, String name, @Nullable String email, boolean isBoy) {
       this.id = id;
       this.name = name;
       this.email = email;

@@ -6,6 +6,8 @@ package com.xxxifan.kotlinplayground.nulls
 class KotlinUtil {
 
   companion object {
+    @JvmOverloads
+    @JvmStatic
     fun init(a: Int = 0, pair: Pair<String, Boolean>, receiver: (() -> Unit)? = null) {
       receiver?.invoke()
     }
@@ -18,11 +20,14 @@ class KotlinUtil {
 }
 
 object Singleton {
-  val app: KotlinUtil = KotlinUtil()
+  @JvmStatic
+  val APP: KotlinUtil = KotlinUtil()
+    @JvmName("getApp") get
 }
 
 class KotlinUse {
   fun play() {
-
+    val pair = "number" to true
+    KotlinUtil.init(pair = pair)
   }
 }
